@@ -13,6 +13,7 @@ stages:
           inputs:
             version: 'v1.26.0'
         - task: TerraformTask@5
+          displayName: init
           inputs: 
             provider: 'azurerm'
             command: 'init'
@@ -20,4 +21,14 @@ stages:
             backendAzureRmStorageAccountName: 'storageaccount5jan26'
             backendAzureRmContainerName: 'jancon'
             backendAzureRmKey: 'jankey'
+        - task: TerraformTask@5
+          displayName: plan
+          inputs:
+            provider: 'azurerm'
+            command: 'plan'
+        - task: TerraformTask@5
+          displayName: apply
+          inputs:
+            provider: 'azurerm'
+            command: 'apply'
         
